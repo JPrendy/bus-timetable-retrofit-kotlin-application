@@ -48,5 +48,17 @@ How to manage releases in a repository [link](https://help.github.com/en/github/
 
 ## Helpful resources
 
-The following link provides helpful information
-- [link](https://github.com/JPrendy/template-repository).
+The following link provides very helpful information on Retrofit and mocking using MockWebServer.
+- [link](https://www.raywenderlich.com/10091980-testing-rest-apis-using-mockwebserver).
+
+The following link goes into leveling up your ui tests with MockWebServer
+- [link](https://tech.okcupid.com/ui-tests-with-mockwebserver/).
+
+The following link provides a guide on consuming apis with Retrofit
+- [link](https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit).
+
+The following link helps if you get the following error `Failed to open QEMU pipe 'qemud:network': Invalid argument`.
+- [link](https://stackoverflow.com/a/57726127).
+
+The following link provides information if you failed to define the application in the manifest.
+- [link](https://stackoverflow.com/a/10607418).
