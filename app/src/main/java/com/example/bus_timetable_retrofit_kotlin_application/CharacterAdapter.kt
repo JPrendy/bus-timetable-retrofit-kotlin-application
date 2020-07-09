@@ -13,9 +13,9 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
 
     private val characterList = mutableListOf<CharacterModel>()
 
-    fun setCharacterList(characterList: List<CharacterModel>) {
+    fun setCharacterList(characterList: CharacterModel) {
         this.characterList.clear()
-        this.characterList.addAll(characterList)
+        this.characterList.addAll(listOf(characterList))
         notifyDataSetChanged()
     }
 
@@ -32,17 +32,16 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
         val character = characterList[position]
         with(holder) {
             characterNameTextView.text = String.format(characterNameTextView.context.getString(R.string
-                .name_placeholder), character.name)
-            characterRoleTextView.text = String.format(characterRoleTextView.context.getString(R.string
-                .role_placeholder), character.role?.capitalize() ?: "Unknown")
-            orderOfThePhoenixTextView.text = String.format(orderOfThePhoenixTextView.context.getString(R.string
-                .orderOfThePhoenix_placeholder), character.orderOfThePhoenix)
+                .name_placeholder), character.result[position].duetime)
+            characterRoleTextView.text = String.format(characterNameTextView.context.getString(R.string
+                .name_placeholder), character.result[1].duetime)
         }
     }
 
     inner class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val characterNameTextView: TextView = itemView.character_name_textview
         val characterRoleTextView: TextView = itemView.character_role_textview
-        val orderOfThePhoenixTextView: TextView = itemView.orderOfThePhoenix_textview
+
+
     }
 }

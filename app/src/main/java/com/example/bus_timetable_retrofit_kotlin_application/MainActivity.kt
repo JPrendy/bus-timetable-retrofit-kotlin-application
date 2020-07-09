@@ -33,20 +33,16 @@ class MainActivity : AppCompatActivity() {
             .build()
             .create(BusApi::class.java)
 
-        potterApi.getCharacters().enqueue(object : Callback<List<CharacterModel>> {
-            override fun onFailure(call: Call<List<CharacterModel>>, t: Throwable) {
+        potterApi.getCharacters().enqueue(object : Callback<CharacterModel> {
+            override fun onFailure(call: Call<CharacterModel>, t: Throwable) {
                 showErrorState()
             }
 
-            override fun onResponse(call: Call<List<CharacterModel>>,
-                                    response: Response<List<CharacterModel>>) {
+            override fun onResponse(call: Call<CharacterModel>,
+                                    response: Response<CharacterModel>) {
                 if (response.isSuccessful && response.body() != null) {
                     val characterList = response.body()!!
-                    if (characterList.isEmpty()) {
-                        showEmptyDataState()
-                    } else {
                         showCharacterList(characterList)
-                    }
                 } else {
                     showErrorState()
                 }
@@ -61,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         textview.text = getString(R.string.there_seems_to_be_no_data)
     }
 
-    private fun showCharacterList(characterList: List<CharacterModel>) {
+    private fun showCharacterList(characterList: CharacterModel) {
         character_recyclerview.visibility = View.VISIBLE
         progress_bar.visibility = View.GONE
         textview.visibility = View.GONE

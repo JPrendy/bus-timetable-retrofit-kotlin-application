@@ -6,8 +6,8 @@ import retrofit2.http.Query
 
 interface BusApi {
 
-    @GET("v1/characters")
-    fun getCharacters(@Query("key") key: String = API_KEY): Call<List<CharacterModel>>
+    @GET("cgi-bin/rtpi/realtimebusinformation?stopid=7602&format=json")
+    fun getCharacters(): Call<CharacterModel>
 }
 
 // TODO : paste below your API key as a String value. You can get it from https://www.potterapi.com/
