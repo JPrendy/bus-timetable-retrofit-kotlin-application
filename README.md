@@ -13,17 +13,78 @@ The existing repository is a template, I can generate new repositories with the 
 - [Releases](#releases)
 - [Helpful resources](#helpful-resources)
 
-
 ## Setup Steps
 
+Go to the app module build.gradle and add the following dependencies
+
+```kotlin
+implementation 'androidx.cardview:cardview:1.0.0'
+implementation 'com.squareup.retrofit2:retrofit:2.8.1'
+implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+implementation "androidx.recyclerview:recyclerview:1.1.0"
+implementation "com.squareup.okhttp3:okhttp:4.4.0"
+androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.4.0"
+androidTestImplementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
+androidTestImplementation 'androidx.test:rules:1.2.0'
+androidTestImplementation 'androidx.test:runner:1.2.0'
 ```
-Code here
+
+Go to the `AndroidManifest.xml` and allow internet permission
+
+```kotlin
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+In the `AndroidManifest.xml`, make sure you add the name of the application you will use, in this instance it is `BusApp`.
+
+```kotlin
+android:name="BusApp"
+```
+
+The api we are fetching is not a normal list, it is an object that contains an array `results`, in the array `results` has the list of data we want. See how this api is different from other apis.
+
+```kotlin
+{
+  "errorcode": "0",
+  "errormessage": "",
+  "numberofresults": 3,
+  "stopid": "184",
+  "timestamp": "08/07/2020 23:29:20",
+  "results": [
+    {
+      "arrivaldatetime": "08/07/2020 23:31:42",
+      "duetime": "2222",
+      "departuredatetime": "08/07/2020 23:31:42",
+      "departureduetime": "2",
+      "scheduledarrivaldatetime": "08/07/2020 23:33:00",
+      "scheduleddeparturedatetime": "08/07/2020 23:33:00",
+      "destination": "O'Connell St",
+      "destinationlocalized": "Sr. Uí Chonaill",
+      "origin": "Harristown",
+      "originlocalized": "Baile Anraí",
+      "direction": "Outbound",
+      "operator": "bac",
+      "operatortype": "1",
+      "additionalinformation": "",
+      "lowfloorstatus": "no",
+      "route": "4",
+      "sourcetimestamp": "08/07/2020 23:24:15",
+      "monitored": "true"
+    },
 ```
 
 ## How to run the project locally
 
+To run the unit tests locally.
+
+```kotlin
+./gradlew testdebugUnitTest
 ```
-Code here
+
+To run the ui tests locally, but first we need an emulator to be open.
+
+```kotlin
+./gradlew connectedCheck
 ```
 
 ## Tools
