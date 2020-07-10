@@ -19,24 +19,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:textSize="16sp"
-            tools:text="Name: Phineas Nigellus Black" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/character_role_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:textSize="14sp"
-            tools:text="Role: (Formerly) Headmaster of Hogwarts" />
+            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/orderOfThePhoenix_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:textSize="14sp"
-            tools:text="Order of the Phoenix: false" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="84dp"
+            app:srcCompat="@drawable/bus" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -11,11 +11,11 @@ import kotlinx.android.synthetic.main.row_character_viewholder.view.*
 
 class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
-    private val characterList = mutableListOf<CharacterModel>()
+    private val characterList = mutableListOf<Result>()
 
-    fun setCharacterList(characterList: CharacterModel) {
+    fun setCharacterList(characterList: List<Result>) {
         this.characterList.clear()
-        this.characterList.addAll(listOf(characterList))
+        this.characterList.addAll(characterList)
         notifyDataSetChanged()
     }
 
@@ -32,9 +32,7 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
         val character = characterList[position]
         with(holder) {
             characterNameTextView.text = String.format(characterNameTextView.context.getString(R.string
-                .name_placeholder), character.result[position].duetime)
-            characterRoleTextView.text = String.format(characterNameTextView.context.getString(R.string
-                .name_placeholder), character.result[1].duetime)
+                .buss_placeholder), character.duetime)
         }
     }
 

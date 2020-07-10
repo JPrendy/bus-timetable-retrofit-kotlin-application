@@ -25,15 +25,14 @@ class MainActivity : AppCompatActivity() {
         characterAdapter = CharacterAdapter()
         character_recyclerview.adapter = characterAdapter
 
-        val potterApi = Retrofit.Builder()
-            //.baseUrl("https://841c22f8-d56a-470c-ab09-60de31bebc40.mock.pstmn.io/")
+        val dataApi = Retrofit.Builder()
             .baseUrl((application as BusApp).getBaseUrl())
             .addConverterFactory(GsonConverterFactory.create(Gson()))
             .client(OkHttpProvider.getOkHttpClient())
             .build()
             .create(BusApi::class.java)
 
-        potterApi.getCharacters().enqueue(object : Callback<CharacterModel> {
+        dataApi.getCharacters().enqueue(object : Callback<CharacterModel> {
             override fun onFailure(call: Call<CharacterModel>, t: Throwable) {
                 showErrorState()
             }
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<CharacterModel>,
                                     response: Response<CharacterModel>) {
                 if (response.isSuccessful && response.body() != null) {
-                    val characterList = response.body()!!
+                    val characterList = response.body()!!.result
                         showCharacterList(characterList)
                 } else {
                     showErrorState()
@@ -50,14 +49,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun showEmptyDataState() {
-        character_recyclerview.visibility = View.GONE
-        progress_bar.visibility = View.GONE
-        textview.visibility = View.VISIBLE
-        textview.text = getString(R.string.there_seems_to_be_no_data)
-    }
-
-    private fun showCharacterList(characterList: CharacterModel) {
+    private fun showCharacterList(characterList: List<Result>) {
         character_recyclerview.visibility = View.VISIBLE
         progress_bar.visibility = View.GONE
         textview.visibility = View.GONE

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="bus-timetable-retrofit-kotlin-application/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bus-timetable-retrofit-kotlin-application.iml" filepath="$PROJECT_DIR$/.idea/modules/bus-timetable-retrofit-kotlin-application.iml" group="bus-timetable-retrofit-kotlin-application" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bus-timetable-retrofit-kotlin-application.iml" filepath="$PROJECT_DIR$/.idea/modules/bus-timetable-retrofit-kotlin-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/bus-timetable-retrofit-kotlin-application.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/bus-timetable-retrofit-kotlin-application.app.iml" />
     </modules>
   </component>
 </project>
