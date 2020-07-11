@@ -32,7 +32,9 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
         val character = characterList[position]
         with(holder) {
             characterNameTextView.text = String.format(characterNameTextView.context.getString(R.string
-                .buss_placeholder), character.duetime)
+                .bus_duetime), character.duetime)
+            characterRoleTextView.text = String.format(characterNameTextView.context.getString(R.string
+                .bus_route), character.route)
         }
     }
 

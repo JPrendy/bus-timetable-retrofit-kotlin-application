@@ -9,5 +9,8 @@ data class CharacterModel(
 
 data class Result(
     @SerializedName("duetime")
-    val duetime: String
+    val duetime: String,
+
+    @SerializedName("route")
+    val route: String
 )

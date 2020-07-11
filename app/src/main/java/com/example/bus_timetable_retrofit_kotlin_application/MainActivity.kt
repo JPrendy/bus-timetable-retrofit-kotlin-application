@@ -2,6 +2,7 @@ package com.example.bus_timetable_retrofit_kotlin_application
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +22,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Your code
+        //Important Intent, we getting the value we passed over from `StartActivity`
+        var message = intent.getIntExtra(EXTRA_MESSAGE, 7602)
+        //Might need this for testing
+//        if( message == null) {
+//            message = 1762.toString()
+//        }
+
         characterAdapter = CharacterAdapter()
         character_recyclerview.adapter = characterAdapter
 
@@ -32,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             .build()
             .create(BusApi::class.java)
 
-        dataApi.getCharacters().enqueue(object : Callback<CharacterModel> {
+        dataApi.getCharacters(message).enqueue(object : Callback<CharacterModel> {
             override fun onFailure(call: Call<CharacterModel>, t: Throwable) {
                 showErrorState()
             }

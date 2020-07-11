@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">bus-timetable-retrofit-kotlin-application</string>
-    <string name="buss_placeholder">The next bus is due in %1$s</string>
+    <string name="bus_duetime">The next bus is due in %1$s</string>
+    <string name="bus_route">The Bus number is %1$s</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="there_seems_to_be_no_data">There seems to be no data :(</string>
 </resources>
