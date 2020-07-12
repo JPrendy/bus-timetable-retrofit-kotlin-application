@@ -8,8 +8,9 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
         android:text="Local"
         android:onClick="Local"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,14 +19,69 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
+        android:id="@+id/button"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="Dame Street (16)"
+        android:backgroundTint="#4CAF50"
+        android:onClick="Rathmines"
+        android:text="Rathmines (14)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:onClick="Knocklyon"
+        android:text="Knocklyon (15)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:onClick="Donnycarney"
+        android:text="Donnycarney (15)"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.89" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
         android:onClick="DameStreet"
+        android:text="Dame Street (16)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2"
         app:layout_constraintVertical_bias="0.447" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054"
+        app:srcCompat="@drawable/bus" />
 </androidx.constraintlayout.widget.ConstraintLayout>

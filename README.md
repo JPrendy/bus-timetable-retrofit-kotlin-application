@@ -18,6 +18,7 @@ The existing repository is a template, I can generate new repositories with the 
 Go to the app module build.gradle and add the following dependencies
 
 ```kotlin
+implementation 'com.github.bumptech.glide:glide:4.9.0'
 implementation 'androidx.cardview:cardview:1.0.0'
 implementation 'com.squareup.retrofit2:retrofit:2.8.1'
 implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
@@ -39,6 +40,12 @@ In the `AndroidManifest.xml`, make sure you add the name of the application you 
 
 ```kotlin
 android:name="BusApp"
+```
+
+In the `styles.xml`, make sure you change the style's parent if you don't want to show the action bar
+
+```kotlin
+<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 ```
 
 The api we are fetching is not a normal list, it is an object that contains an array `results`, in the array `results` has the list of data we want. See how this api is different from other apis.
@@ -123,3 +130,6 @@ The following link helps if you get the following error `Failed to open QEMU pip
 
 The following link provides information if you failed to define the application in the manifest.
 - [link](https://stackoverflow.com/a/10607418).
+
+The following link provides information on how to use the image dependency Glide, which is good for gifs.
+- [link](https://github.com/bumptech/glide).
