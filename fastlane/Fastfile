@@ -39,7 +39,8 @@ desc "Upload to App Center"
   file: "app/build/outputs/apk/debug/app-debug.apk",
   notify_testers: false,
   release_notes: "Uploading app to App Center"
-)
+  )
+  end
 
   desc "Deploy a new version to the Google Play"
   lane :deploy do
