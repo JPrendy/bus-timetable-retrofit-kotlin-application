@@ -21,14 +21,25 @@ platform :android do
     gradle(task: "test")
   end
 
-  desc "Submit a new Beta Build to Crashlytics Beta"
+desc "Create the app-debug apk"
   lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
-  
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
+    gradle(
+      task: 'assemble',
+      build_type: 'debug'
+    )
   end
+
+# https://github.com/microsoft/fastlane-plugin-appcenter
+desc "Upload to App Center"
+  lane :upload_to_app_center do
+  appcenter_upload(
+  api_token: ENV["FASTLANE_TOKEN"],
+  owner_name: "jprendy",
+  app_name: "Android-App",
+  file: "app/build/outputs/apk/debug/app-debug.apk",
+  notify_testers: false,
+  release_notes: "Uploading app to App Center"
+)
 
   desc "Deploy a new version to the Google Play"
   lane :deploy do
