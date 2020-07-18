@@ -3,6 +3,7 @@ package com.example.bus_timetable_retrofit_kotlin_application
 import android.content.Intent
 import android.os.Bundle
 import android.provider.AlarmClock.EXTRA_MESSAGE
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -16,9 +17,10 @@ class StartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_start)
 
 
-        val imageView = findViewById<ImageView>(R.id.image)
+        Log.i("test", "Flipper")
 
-        //Placeholder image, replace it when publishing it.
+        val imageView = findViewById<ImageView>(R.id.image)
+                //Placeholder image, replace it when publishing it.
         Glide.with(this).load("https://octodex.github.com/images/daftpunktocat-thomas.gif").into(imageView)
     }
 
