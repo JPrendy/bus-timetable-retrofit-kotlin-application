@@ -1,8 +1,8 @@
-# template-repository
+# Bus timetable retrofit kotlin application
 
 ## Description
 
-The existing repository is a template, I can generate new repositories with the same directory structure, branches, and files.
+A Kotlin Application that uses Dublin bus API to show when the next available bus will arrive. It uses Retrofit and MockWebServer to mock apis.
 
 ## Contents
 
@@ -22,12 +22,20 @@ implementation 'com.github.bumptech.glide:glide:4.9.0'
 implementation 'androidx.cardview:cardview:1.0.0'
 implementation 'com.squareup.retrofit2:retrofit:2.8.1'
 implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+implementation 'com.squareup.retrofit2:converter-moshi:2.4.0'
 implementation "androidx.recyclerview:recyclerview:1.1.0"
 implementation "com.squareup.okhttp3:okhttp:4.4.0"
 androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.4.0"
 androidTestImplementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
 androidTestImplementation 'androidx.test:rules:1.2.0'
 androidTestImplementation 'androidx.test:runner:1.2.0'
+debugImplementation 'com.facebook.flipper:flipper:0.50.0'
+debugImplementation 'com.facebook.soloader:soloader:0.9.0'
+releaseImplementation 'com.facebook.flipper:flipper-noop:0.50.0'
+
+repositories {
+    jcenter()
+}
 ```
 
 Go to the `AndroidManifest.xml` and allow internet permission
@@ -80,6 +88,30 @@ The api we are fetching is not a normal list, it is an object that contains an a
     },
 ```
 
+In the `AndroidManifest.xml`, make sure you add the following for Flipper debugger
+
+```kotlin
+<activity android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
+        android:exported="true"/>
+```
+
+In the `BusApp.kt`, which is our application class, make sure you add the following for Flipper debugger
+
+```kotlin
+override fun onCreate() {
+    super.onCreate()
+    SoLoader.init(this, false)
+    if (BuildConfig.DEBUG && FlipperUtils.shouldEnableFlipper(
+            this
+        )
+    ) {
+        val client = AndroidFlipperClient.getInstance(this)
+        client.addPlugin(InspectorFlipperPlugin(this, DescriptorMapping.withDefaults()))
+        client.start()
+    }
+}
+```
+
 ## How to run the project locally
 
 To run the unit tests locally.
@@ -94,6 +126,18 @@ To run the ui tests locally, but first we need an emulator to be open.
 ./gradlew connectedCheck
 ```
 
+To create `app-debug.apk` with fastlane locally, run the following.
+
+```kotlin
+bundle exec fastlane beta
+```
+
+To upldoad `app-debug.apk` to App Center with fastlane locally, run the following.
+
+```kotlin
+bundle exec fastlane upload_to_app_center
+```
+
 ## Tools
 
 **Linter:** we use the following linter [link](https://github.com/github/super-linter).
@@ -101,6 +145,12 @@ To run the ui tests locally, but first we need an emulator to be open.
 **Uploading Artifacts:**  we use the following way to upload Artifacts, they allow you to persist data like test results after a job has completed, see the following documentation [link](https://docs.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts).
 
 **Creating a Mock Server:** we use a mock server with Postman to quickly test apis, to see how to create a mock server, see the following video [link](https://www.youtube.com/watch?v=rJY8uUH2TIk). 
+
+### Mobile Specific Tools:
+ 
+**Fastlane:** Fastlane allows us to automate our development and release process [link](https://docs.fastlane.tools/).
+
+**App Center:** App Center is used to distribute an app, making it very easy to test on a physical device by using a fastlane plugin [link](https://github.com/microsoft/fastlane-plugin-appcenter).
 
 ## Update Dependencies
 
@@ -133,3 +183,12 @@ The following link provides information if you failed to define the application 
 
 The following link provides information on how to use the image dependency Glide, which is good for gifs.
 - [link](https://github.com/bumptech/glide).
+
+The following link provides information on how to use the debugging tool Flipper for Android.
+- [link](https://fbflipper.com/docs/getting-started/android-native).
+
+The following link provides information on how to convert from using Gson to Moshi.
+- [link](https://proandroiddev.com/moshi-with-retrofit-in-kotlin-%EF%B8%8F-a69c2621708b).
+
+The following link provides Moshi's official github which provides examples on how to use Moshi.
+- [link](https://github.com/square/moshi).

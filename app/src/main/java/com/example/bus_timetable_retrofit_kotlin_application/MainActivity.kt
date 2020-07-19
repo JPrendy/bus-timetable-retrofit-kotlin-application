@@ -11,6 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,9 +33,18 @@ class MainActivity : AppCompatActivity() {
         characterAdapter = CharacterAdapter()
         character_recyclerview.adapter = characterAdapter
 
+        //Gson implementation version
+//        val dataApi = Retrofit.Builder()
+//            .baseUrl((application as BusApp).getBaseUrl())
+//            .addConverterFactory(GsonConverterFactory.create(Gson()))
+//            .client(OkHttpProvider.getOkHttpClient())
+//            .build()
+//            .create(BusApi::class.java)
+
+        //Moshi implementation version
         val dataApi = Retrofit.Builder()
             .baseUrl((application as BusApp).getBaseUrl())
-            .addConverterFactory(GsonConverterFactory.create(Gson()))
+            .addConverterFactory(MoshiConverterFactory.create())
             .client(OkHttpProvider.getOkHttpClient())
             .build()
             .create(BusApi::class.java)

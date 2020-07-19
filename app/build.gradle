@@ -44,13 +44,13 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.4.0'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "com.squareup.okhttp3:okhttp:4.4.0"
     androidTestImplementation "com.squareup.okhttp3:mockwebserver:4.4.0"
     androidTestImplementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
-
     debugImplementation 'com.facebook.flipper:flipper:0.50.0'
     debugImplementation 'com.facebook.soloader:soloader:0.9.0'
     releaseImplementation 'com.facebook.flipper:flipper-noop:0.50.0'

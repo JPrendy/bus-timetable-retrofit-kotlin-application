@@ -5,6 +5,9 @@ on:
     branches:
       - master
       - develop
+    paths-ignore:
+      - 'README.md'
+      - '.github/**'
   pull_request:
     branches:
       - master
