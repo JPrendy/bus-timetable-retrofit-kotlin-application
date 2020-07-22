@@ -192,3 +192,6 @@ The following link provides information on how to convert from using Gson to Mos
 
 The following link provides Moshi's official github which provides examples on how to use Moshi.
 - [link](https://github.com/square/moshi).
+
+The following link provides info on setting up code coverage with the JaCoCo plugin.
+- [link](https://www.raywenderlich.com/10562143-continuous-integration-for-android#toc-anchor-013).
