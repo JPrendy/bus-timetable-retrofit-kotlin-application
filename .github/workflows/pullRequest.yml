@@ -37,10 +37,10 @@ jobs:
         FASTLANE_TOKEN : ${{ secrets.FASTLANE_TOKEN }}
       run: bundle exec fastlane upload_to_app_center
 
-#     Artifacts allow you to persist data like test results after a job has completed, see https://docs.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts for how the artifacts works
-     - name: Upload Fastlane Test results
-       uses: actions/upload-artifact@v1
-       with:
-         name: Fastlane Test Results
-         path: app/build/reports/jacoco
+      #Artifacts allow you to persist data like test results after a job has completed, see https://docs.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts for how the artifacts works
+    - name: Upload Fastlane Test results
+      uses: actions/upload-artifact@v1
+      with:
+        name: Fastlane Test Results
+        path: app/build/reports/jacoco
 
