@@ -29,7 +29,10 @@ jobs:
       run: bundle exec fastlane beta
 
     - name: Create jacocoTestReport
-      run: ./gradlew jacocoTestReport
+      uses: ReactiveCircus/android-emulator-runner@v1.0.2
+      with:
+        api-level: 28
+        script: ./gradlew jacocoTestReport
 
     - name: Upload to App Center
       env:
