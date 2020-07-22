@@ -42,5 +42,5 @@ jobs:
        uses: actions/upload-artifact@v1
        with:
          name: Fastlane Test Results
-         path: build/reports/jacoco
+         path: app/build/reports/jacoco
 
