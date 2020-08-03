@@ -50,6 +50,12 @@ In the `AndroidManifest.xml`, make sure you add the name of the application you 
 android:name="BusApp"
 ```
 
+In the `AndroidManifest.xml`, make sure you add the following or you may have issues using the MockTestRunner.
+
+```kotlin
+android:usesCleartextTraffic="true"
+```
+
 In the `styles.xml`, make sure you change the style's parent if you don't want to show the action bar
 
 ```kotlin
@@ -195,3 +201,6 @@ The following link provides Moshi's official github which provides examples on h
 
 The following link provides info on setting up code coverage with the JaCoCo plugin.
 - [link](https://www.raywenderlich.com/10562143-continuous-integration-for-android#toc-anchor-013).
+
+The following link provides info on Unresolved reference: kotlinx.
+- [link](https://stackoverflow.com/a/34173727).
