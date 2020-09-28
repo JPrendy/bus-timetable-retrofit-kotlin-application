@@ -118,6 +118,48 @@ override fun onCreate() {
 }
 ```
 
+To use Proxyman on an Android Emulator, look at the following documentation [link](https://docs.proxyman.io/debug-devices/android-device/sample-android-project).
+
+Firstly, add the following to `AndroidManifest.xml`
+
+```kotlin
+        android:networkSecurityConfig="@xml/network_security_config"
+```
+
+Then create the following file `res/xml/network_security_config.xml` and add the following
+
+```kotlin
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--Set application-wide security config using base-config tag.-->
+    <!--Set domain-specific security config using domain-config tags. -->
+    <!--See https://developer.android.com/training/articles/security-config.html for more information.-->
+    <debug-overrides>
+        <trust-anchors>
+            <!-- Trust user added CAs while debuggable only -->
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <domain-config>
+        <domain includeSubdomains="true">www.google.com</domain>
+        <trust-anchors>
+            <certificates src="user"/>
+            <certificates src="system"/>
+        </trust-anchors>
+    </domain-config>
+</network-security-config>
+```
+
+Look at the documentation mentioned above on how to setup a Proxyman on a Pixel 3 emulator.
+
+
 ## How to run the project locally
 
 To run the unit tests locally.
@@ -204,3 +246,6 @@ The following link provides info on setting up code coverage with the JaCoCo plu
 
 The following link provides info on Unresolved reference: kotlinx.
 - [link](https://stackoverflow.com/a/34173727).
+
+The following link provides info on how to setup Proxyman on Android.
+- [link](https://docs.proxyman.io/debug-devices/android-device/sample-android-project).

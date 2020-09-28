@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/bus"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
 
         <activity android:name=".MainActivity"
