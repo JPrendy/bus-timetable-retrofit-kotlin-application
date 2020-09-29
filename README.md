@@ -56,6 +56,10 @@ In the `AndroidManifest.xml`, make sure you add the following or you may have is
 android:usesCleartextTraffic="true"
 ```
 
+To store out json files like `success_response.json` we want it stored in the following directory path `app/src/debug/assets/success_response.json`. See the below image on how to create that debug directory
+
+<p><img src="images/debug-assets-folder.png" width="500"/></p>
+
 In the `styles.xml`, make sure you change the style's parent if you don't want to show the action bar
 
 ```kotlin
