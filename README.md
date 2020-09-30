@@ -163,6 +163,32 @@ Then create the following file `res/xml/network_security_config.xml` and add the
 
 Look at the documentation mentioned above on how to setup a Proxyman on a Pixel 3 emulator.
 
+**Important to note if running test directly via localhost:**
+
+If for example we wanted to create a new `Phone and Tablet module` that copied another module that had a live url and in this module we just used the `localhost` instead of a live url, we wouldn't then need `BusTestApp.kt` and `MockTestRunner.kt` and we would need to update the `FileReader.kt` to be the following
+
+```kotlin
+import androidx.test.platform.app.InstrumentationRegistry
+import java.io.IOException
+import java.io.InputStreamReader
+
+object FileReader {
+    fun readStringFromFile(fileName: String): String {
+        try {
+            val inputStream = InstrumentationRegistry.getInstrumentation().targetContext
+                .applicationContext.assets.open(fileName)
+            val builder = StringBuilder()
+            val reader = InputStreamReader(inputStream, "UTF-8")
+            reader.readLines().forEach {
+                builder.append(it)
+            }
+            return builder.toString()
+        } catch (e: IOException) {
+            throw e
+        }
+    }
+}
+```
 
 ## How to run the project locally
 
