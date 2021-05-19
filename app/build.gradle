@@ -5,7 +5,6 @@ apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.bus_timetable_retrofit_kotlin_application"

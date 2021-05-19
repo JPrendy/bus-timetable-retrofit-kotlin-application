@@ -6,8 +6,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a3909dfe98439780c594bde7cbe3bb99/jetified-core-1.2.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3be774639705a4f6e7fdca56d61f053c/jetified-core-1.2.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2902beddaebc388e24f5de1116bfae5/jetified-core-1.2.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2902beddaebc388e24f5de1116bfae5/jetified-core-1.2.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2902beddaebc388e24f5de1116bfae5/jetified-core-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/beca74ac0eebd1cc05f852cc9706fcd5/transformed/jetified-core-1.2.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/beca74ac0eebd1cc05f852cc9706fcd5/transformed/jetified-core-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/beca74ac0eebd1cc05f852cc9706fcd5/transformed/jetified-core-1.2.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/core/1.2.0/ed921186cfb809317daf41ccf8e6acc5dcea0e06/core-1.2.0-javadoc.jar!/" />
