@@ -29,7 +29,7 @@ jobs:
       run: bundle exec fastlane beta
 
     - name: Create jacocoTestReport
-      uses: ReactiveCircus/android-emulator-runner@v2.18.0
+      uses: ReactiveCircus/android-emulator-runner@v2.19.0
       with:
         api-level: 28
         script: ./gradlew jacocoTestReport

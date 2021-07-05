@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         val dataApi = Retrofit.Builder()
             .baseUrl((application as BusApp).getBaseUrl())
             .addConverterFactory(MoshiConverterFactory.create())
-            .client(OkHttpProvider.getOkHttpClient())
+            .client(OkHttpProvider.getOkHttpClient()) // OkHttpProvider.getOkHttpClient() is a singleton, which means the class only has one instance, and provide a global point of access to it.
             .build()
             .create(BusApi::class.java)
 
