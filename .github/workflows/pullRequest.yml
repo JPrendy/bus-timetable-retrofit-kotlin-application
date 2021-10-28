@@ -17,8 +17,9 @@ jobs:
 
     #  runs-on: ubuntu-latest # need to use linux if we want to use the linter
     runs-on: macos-11
+    timeout-minutes: 20
     environment: 
-      name: Deployment
+      name: AppCenter
       url: https://appcenter.ms/
 
     steps:
@@ -37,7 +38,7 @@ jobs:
       run: bundle exec fastlane beta
 
     - name: Create jacocoTestReport
-      uses: ReactiveCircus/android-emulator-runner@v2.19.0
+      uses: ReactiveCircus/android-emulator-runner@v2.21.0
       with:
         api-level: 28
         script: ./gradlew jacocoTestReport
