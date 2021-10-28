@@ -279,3 +279,6 @@ The following link provides info on Unresolved reference: kotlinx.
 
 The following link provides info on how to setup Proxyman on Android.
 - [link](https://docs.proxyman.io/debug-devices/android-device/sample-android-project).
+
+The following link provides info on how to setup a corresponding link url in the Github Actions interface.
+- [link](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment).
