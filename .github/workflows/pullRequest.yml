@@ -3,13 +3,11 @@ name: CI pull request
 on:
   push: 
     branches:
-      - master
+      - main
       - develop
-    paths-ignore:
-      - 'README.md'
   pull_request:
     branches:
-      - master
+      - main
       - develop
 
 jobs:
@@ -24,32 +22,27 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2.3.4
-    
-    - uses: actions/setup-java@v2
+    - name: Create service account
+      run: ./gradlew clean assembleDebug assembleDebugAndroidTest 
+
+    - name: Build APK files
+      run: echo '${{ secrets.SERVICE_ACCOUNT }}' > service_account_created.json
+
+    - name: flank run
+      id: flank_run
+      uses: Flank/flank@master
       with:
-        distribution: 'zulu'
-        java-version: '11'
+        # Service account created in previous step
+        service_account: './service_account_created.json'
+        # Run Android tests
+        platform: android
+        # Path to configuration file from local repo
+        flank_configuration_file: './flank.yml'
 
-    # Run Linter against code base, see https://github.com/github/super-linter for how the linter works
-    - name: Install Dependencies
-      run: bundle install
+    - name: output
+      run: |
+        # Use local directory output
+        echo "Local directory: ${{ steps.flank_run.outputs.local_results_directory }}"
+        # Use Gcloud storage output 
+        echo "Gcloud: ${{ steps.flank_run.outputs.gcloud_results_directory }}"
 
-    - name: Create Debug APK
-      run: bundle exec fastlane beta
-
-    - name: Create jacocoTestReport
-      uses: ReactiveCircus/android-emulator-runner@v2.21.0
-      with:
-        api-level: 28
-        script: ./gradlew jacocoTestReport
-
-    - name: Upload to App Center
-      env:
-        FASTLANE_TOKEN : ${{ secrets.FASTLANE_TOKEN }}
-      run: bundle exec fastlane upload_to_app_center
-
-    - name: Upload Fastlane Test results
-      uses: actions/upload-artifact@v1
-      with:
-        name: Fastlane Test Results
-        path: app/build/reports/jacoco
